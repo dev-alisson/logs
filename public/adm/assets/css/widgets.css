@@ -97,7 +97,7 @@ Datatable
 
 .dataTables_wrapper table.dataTable tbody td {
     color: #999999;
-    padding: 8px 15px;
+    padding: 15px;
 }
 
 .dataTables_wrapper table.dataTable thead th:first-child,
@@ -238,8 +238,8 @@ Datatable
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     color: var(--white-dark) !important;
-    background: var(--blue-light);
-    border-color: var(--blue-light);
+    background: var(--gray-light);
+    border-color: var(--gray-light);
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,

@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Validator;
  */
 
 use App\Models\User;
-use App\Models\Log;
 
 /**
  * UserController
@@ -36,11 +35,6 @@ class UserController extends Controller
             $users = User::all();
 
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
              * View
              */
             return view(
@@ -61,24 +55,9 @@ class UserController extends Controller
             );
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -94,11 +73,6 @@ class UserController extends Controller
          */
         try {
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
              * View
              */
             return view(
@@ -109,24 +83,9 @@ class UserController extends Controller
             );
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -243,11 +202,6 @@ class UserController extends Controller
             $user->save();
 
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
              * Response
              */
             return [
@@ -268,24 +222,9 @@ class UserController extends Controller
             ];
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -305,11 +244,6 @@ class UserController extends Controller
              * User
              */
             $user = User::find($id);
-
-            /**
-             * Log
-             */
-            $log = new Log;
 
             /**
              * View
@@ -332,24 +266,9 @@ class UserController extends Controller
             );
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -503,11 +422,6 @@ class UserController extends Controller
             $user->save();
 
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
              * Response
              */
             return [
@@ -523,24 +437,9 @@ class UserController extends Controller
             ];
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -567,11 +466,6 @@ class UserController extends Controller
             $user->delete();
 
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
              * Triggers
              */
             return [
@@ -582,24 +476,9 @@ class UserController extends Controller
             ];
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 }

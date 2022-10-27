@@ -3,12 +3,6 @@
 namespace App\Http\Controllers;
 
 /**
- * Models
- */
-
-use App\Models\Log;
-
-/**
  * HomeController
  */
 class HomeController extends Controller
@@ -35,24 +29,9 @@ class HomeController extends Controller
             );
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 }

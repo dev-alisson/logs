@@ -53,7 +53,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalUsers }}
+                                    326
 
                                 </span>
 
@@ -114,7 +114,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalUsers }}
+                                    326
 
                                 </span>
 
@@ -175,7 +175,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalUsers }}
+                                    326
 
                                 </span>
 
@@ -244,7 +244,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalSellers }}
+                                    32
 
                                 </span>
 
@@ -305,7 +305,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalSellers }}
+                                    32
 
                                 </span>
 
@@ -366,7 +366,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalSellers }}
+                                    32
 
                                 </span>
 
@@ -435,7 +435,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalProducts }}
+                                    417
 
                                 </span>
 
@@ -496,7 +496,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalProducts }}
+                                    417
 
                                 </span>
 
@@ -557,7 +557,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ $totalProducts }}
+                                    417
 
                                 </span>
 
@@ -626,7 +626,7 @@
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    {{ number_format($revenues, 2, ',', '.') }}
+                                    149
 
                                 </span>
 
@@ -798,127 +798,15 @@
             <div class="row g-4">
 
                 <!-- column -->
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6 d-flex">
 
-                    <!-- datagrid -->
-                    <form class="datagrid">
+                    <!-- orders -->
+                    <div class="chart flex-fill">
 
-                        <!-- table -->
-                        <table class="datagrid__table responsive nowrap">
+                        <!-- chart -->
+                        <canvas id="chartLogs01"></canvas>
 
-                            <!-- header -->
-                            <thead class="datagrid__header">
-
-                                <!-- fields -->
-                                <tr class="datagrid__fields">
-
-                                    <!-- column -->
-                                    <th class="datagrid__column">
-
-                                        Pedido
-
-                                    </th>
-
-                                    <!-- column -->
-                                    <th class="datagrid__column">
-
-                                        Cliente
-
-                                    </th>
-
-                                    <!-- column -->
-                                    <th class="datagrid__column">
-
-                                        Total
-
-                                    </th>
-
-                                    <!-- column -->
-                                    <th class="datagrid__column">
-
-                                        Data
-
-                                    </th>
-
-                                    <!-- column -->
-                                    <th class="datagrid__column">
-
-                                        <!-- empty -->
-
-                                    </th>
-
-                                </tr>
-
-                            </thead>
-
-                            <!-- body -->
-                            <tbody class="datagrid__body">
-
-                                <!-- loop -->
-                                @foreach ($orders as $order)
-
-                                <!-- item -->
-                                <tr class="datagrid__item">
-
-                                    <!-- data -->
-                                    <td class="datagrid__data">
-
-                                        #{{ str_pad($order->id, 4, '0', STR_PAD_LEFT) }}
-
-                                    </td>
-
-                                    <!-- data -->
-                                    <td class="datagrid__data">
-
-                                        {{ $order->user()->first_name }}
-
-                                    </td>
-
-                                    <!-- data -->
-                                    <td class="datagrid__data">
-
-                                        R$ {{ number_format($order->total, 2, ',', '.') }}
-
-                                    </td>
-
-                                    <!-- data -->
-                                    <td class="datagrid__data">
-
-                                        {{ date('d/m H:i', strtotime($order->created_at)) }}
-
-                                    </td>
-
-                                    <!-- data -->
-                                    <td class="datagrid__data datagrid__actions">
-
-                                        <!-- button -->
-                                        <a class="datagrid__button" href="/admin/orders/edit/{{ $order->id }}">
-
-                                            <!-- icon -->
-                                            <i class="ri-edit-box-line datagrid__icon"></i>
-
-                                        </a>
-
-                                        <!-- button -->
-                                        <button class="datagrid__button"
-                                            data-action="/admin/orders/destroy/{{ $order->id }}">
-
-                                            <!-- icon -->
-                                            <i class="ri-delete-bin-6-line modules__icon"></i>
-
-                                        </button>
-
-                                    </td>
-
-                                </tr>
-
-                                @endforeach
-
-                            </tbody>
-
-                        </table>
-
-                    </form>
+                    </div>
 
                 </div>
 
@@ -929,7 +817,7 @@
                     <div class="chart flex-fill">
 
                         <!-- chart -->
-                        <canvas id="chartSellers"></canvas>
+                        <canvas id="chartLogs02"></canvas>
 
                     </div>
 

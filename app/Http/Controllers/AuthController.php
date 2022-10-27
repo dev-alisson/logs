@@ -31,26 +31,6 @@ class AuthController extends Controller
          */
         try {
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->info(
-                /**
-                 * Action
-                 */
-                'Acesso',
-
-                /**
-                 * Message
-                 */
-                'Acessou formulário de login'
-            );
-
-            /**
              * View
              */
             return view(
@@ -61,24 +41,9 @@ class AuthController extends Controller
             );
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -94,26 +59,6 @@ class AuthController extends Controller
          */
         try {
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->info(
-                /**
-                 * Action
-                 */
-                'Acesso',
-
-                /**
-                 * Message
-                 */
-                'Acessou formulário de cadastro de usuários'
-            );
-
-            /**
              * View
              */
             return view(
@@ -124,24 +69,9 @@ class AuthController extends Controller
             );
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -236,26 +166,6 @@ class AuthController extends Controller
             Auth::login($user);
 
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->info(
-                /**
-                 * Action
-                 */
-                'Cadastro',
-
-                /**
-                 * Message
-                 */
-                "Usuário ID :: {$user->id} cadastrado"
-            );
-
-            /**
              * Response
              */
             return [
@@ -276,24 +186,9 @@ class AuthController extends Controller
             ];
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -319,24 +214,9 @@ class AuthController extends Controller
             );
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -430,26 +310,6 @@ class AuthController extends Controller
                 $request->session()->regenerate();
 
                 /**
-                 * Log
-                 */
-                $log = new Log;
-
-                /**
-                 * Level
-                 */
-                $log->info(
-                    /**
-                     * Action
-                     */
-                    'Login',
-
-                    /**
-                     * Message
-                     */
-                    'Usuário ID :: ' . Auth::user()->id . ' efetuou login'
-                );
-
-                /**
                  * Response
                  */
                 return [
@@ -486,24 +346,9 @@ class AuthController extends Controller
             }
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 
@@ -520,26 +365,6 @@ class AuthController extends Controller
          */
         try {
             /**
-             * Log
-             */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->info(
-                /**
-                 * Action
-                 */
-                'Logout',
-
-                /**
-                 * Message
-                 */
-                'Usuário ID :: ' . Auth::user()->id . ' efetuou logout'
-            );
-
-            /**
              * Logout
              */
             Auth::logout();
@@ -551,24 +376,9 @@ class AuthController extends Controller
             $request->session()->regenerateToken();
         } catch (\Exception $error) {
             /**
-             * Log
+             * Error
              */
-            $log = new Log;
-
-            /**
-             * Level
-             */
-            $log->critical(
-                /**
-                 * Action
-                 */
-                'Erro',
-
-                /**
-                 * Message
-                 */
-                $error->getMessage()
-            );
+            return $error->getMessage();
         }
     }
 }

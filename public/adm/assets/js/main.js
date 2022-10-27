@@ -466,85 +466,6 @@ $(function () {
     });
 
     /**
-     * Catalog
-     */
-
-    // Active
-    $('html').on('change', '.js-catalog-item', function (e) {
-        /**
-         * Product
-         */
-        let product = $(this);
-        product.toggleClass('is-active');
-
-        /**
-         * Selecteds
-         */
-        let selecteds = $('.js-catalog-item.is-active');
-
-        /**
-         * Amount
-         */
-        let amount = selecteds.length;
-        $('.js-catalog-resume').html(amount)
-
-        /**
-         * Verify
-         */
-        if (amount <= 1) {
-
-            $('.js-catalog-variant').html('item')
-
-        } else {
-
-            $('.js-catalog-variant').html('itens')
-
-        }
-
-        /**
-         * Verify
-         */
-        if (amount >= 1) {
-
-            $('.js-catalog-button').prop('disabled', false).html;
-            $('.js-catalog-toggle').text('Cadastrar');
-
-        } else {
-
-            $('.js-catalog-button').prop('disabled', true);
-            $('.js-catalog-toggle').text('Adicione um produto');
-
-        }
-
-        /**
-         * Total
-         */
-        let total = 0;
-
-        /**
-         * Loop
-         */
-        selecteds.each(function (_, product) {
-            /**
-             * Total
-             */
-            total += parseFloat($(product).data('price'));
-        });
-
-        /**
-         * Append
-         */
-        $('.js-catalog-total').html(
-            /**
-             * Convert
-             */
-            total
-                .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-                .replace('R$', 'R$ ')
-        )
-    });
-
-    /**
      * Logs
      */
 
@@ -607,6 +528,149 @@ $(function () {
                      */
                     location.reload()
                 }, 900)
+            }
+        });
+    });
+
+    // Upload
+    $('html').on('submit', '.js-logs-upload', function (e) {
+        /**
+         * Event
+         */
+        e.preventDefault();
+        e.stopPropagation();
+
+        /**
+         * Progress
+         */
+        let progress = $('.js-progress');
+
+        /**
+         * Percente
+         */
+        let percent = $('.js-bar');
+
+        /**
+         * Form
+         */
+        let form = $(this);
+
+        /**
+         * Ajax
+         */
+        form.ajaxSubmit({
+            /**
+             * Method
+             */
+            type: 'post',
+
+            /**
+             * Route
+             */
+            url: '/admin/logs/store',
+
+            /**
+             * Headers
+             */
+            headers: {
+                /**
+                 * CSRF
+                 */
+                'X-CSRF-TOKEN': csrf
+            },
+
+            /**
+             * Type
+             */
+            dataType: 'json',
+
+            /**
+             * Start
+             */
+            beforeSend: function () {
+                progress.show('fast');
+                percent.width('0%');
+                percent.html('0%');
+            },
+
+            /**
+             * Progress
+             */
+            uploadProgress: function (event, position, total, complete) {
+                percent.width(complete + '%');
+                percent.html(complete + '%');
+
+                /**
+                 * Complete
+                 */
+                if (complete == '100') {
+                    /**
+                     * Saving
+                     */
+                    percent.html('Cadastrando logs... Aguarde!');
+                }
+            },
+
+            /**
+             * Success
+             */
+            success: function (data) {
+                /**
+                 * Toast
+                 */
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                /**
+                 * Verify
+                 */
+                if (data.error) {
+
+                    /**
+                     * Message
+                     */
+                    Toast.fire({
+                        icon: 'error',
+                        title: data.message
+                    })
+
+                } else {
+
+                    /**
+                     * Message
+                     */
+                    Toast.fire({
+                        icon: 'success',
+                        title: data.message
+                    })
+
+                    /**
+                     * Reload
+                     */
+                    setTimeout(function () {
+                        /**
+                         * URL
+                         */
+                        location.reload()
+                    }, 2000)
+
+                }
+            },
+
+            /**
+             * Complete
+             */
+            complete: function (xhr) {
+                progress.hide('fast');
             }
         });
     });

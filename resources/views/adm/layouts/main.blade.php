@@ -46,7 +46,7 @@
                     <li class="header__item js-cart-button">
 
                         <!-- button -->
-                        <a class="header__button is-active" href="/admin" title="Dashboard">
+                        <a class="header__button is-active" href="/admin" title="Home">
 
                             <!-- icon -->
                             <i class="ri-home-4-line header__icon--button"></i>
@@ -54,87 +54,7 @@
                             <!-- legend -->
                             <span class="header__legend--button">
 
-                                Dashboard
-
-                            </span>
-
-                        </a>
-
-                    </li>
-
-                    <!-- item -->
-                    <li class="header__item js-cart-button">
-
-                        <!-- button -->
-                        <a class="header__button" href="/admin/products" title="Produtos">
-
-                            <!-- icon -->
-                            <i class="ri-rocket-line header__icon--button"></i>
-
-                            <!-- legend -->
-                            <span class="header__legend--button">
-
-                                Produtos
-
-                            </span>
-
-                        </a>
-
-                    </li>
-
-                    <!-- item -->
-                    <li class="header__item js-cart-button">
-
-                        <!-- button -->
-                        <a class="header__button" href="/admin/users" title="Usuários">
-
-                            <!-- icon -->
-                            <i class="ri-user-line header__icon--button"></i>
-
-                            <!-- legend -->
-                            <span class="header__legend--button">
-
-                                Usuários
-
-                            </span>
-
-                        </a>
-
-                    </li>
-
-                    <!-- item -->
-                    <li class="header__item js-cart-button">
-
-                        <!-- button -->
-                        <a class="header__button" href="/admin/sellers" title="Vendedores">
-
-                            <!-- icon -->
-                            <i class="ri-truck-line header__icon--button"></i>
-
-                            <!-- legend -->
-                            <span class="header__legend--button">
-
-                                Vendedores
-
-                            </span>
-
-                        </a>
-
-                    </li>
-
-                    <!-- item -->
-                    <li class="header__item js-cart-button">
-
-                        <!-- button -->
-                        <a class="header__button" href="/admin/orders" title="Pedidos">
-
-                            <!-- icon -->
-                            <i class="ri-shopping-bag-line header__icon--button"></i>
-
-                            <!-- legend -->
-                            <span class="header__legend--button">
-
-                                Pedidos
+                                Home
 
                             </span>
 
@@ -155,6 +75,26 @@
                             <span class="header__legend--button">
 
                                 Logs
+
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                    <!-- item -->
+                    <li class="header__item js-cart-button">
+
+                        <!-- button -->
+                        <a class="header__button" href="/admin/users" title="Usuários">
+
+                            <!-- icon -->
+                            <i class="ri-user-line header__icon--button"></i>
+
+                            <!-- legend -->
+                            <span class="header__legend--button">
+
+                                Usuários
 
                             </span>
 

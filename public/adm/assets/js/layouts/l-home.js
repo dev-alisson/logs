@@ -10,7 +10,7 @@ $(function () {
     const csrf = meta.attr('content')
 
     /**
-     * Sales
+     * Logs
      */
     $.ajax({
         /**
@@ -21,7 +21,7 @@ $(function () {
         /**
          * URL
          */
-        url: '/admin/sales',
+        url: '/admin/logs',
 
         /**
          * Headers
@@ -35,7 +35,7 @@ $(function () {
             /**
              * Chart
              */
-            new Chart($('#chartSellers'), {
+            new Chart($('#chartLogs01'), {
                 /**
                  * Type
                  */
@@ -48,7 +48,7 @@ $(function () {
                     /**
                      * Labels
                      */
-                    labels: data.sellers,
+                    labels: ['Critical', 'Warning', 'Erro', 'Info'],
 
                     /**
                      * Columns
@@ -60,7 +60,7 @@ $(function () {
                         {
                             label: 'Vendas',
                             backgroundColor: "#2d3349",
-                            data: data.sales
+                            data: [15, 25, 30, 60, 90]
                         },
 
                         /**
@@ -69,7 +69,65 @@ $(function () {
                         {
                             label: 'Receitas',
                             backgroundColor: "#99cfc1",
-                            data: data.revenues
+                            data: [90, 60, 30, 25, 15]
+                        }
+                    ],
+                },
+
+                /**
+                 * Options
+                 */
+                options: {
+                    /**
+                     * Responsive
+                     */
+                    responsive: true,
+
+                    /**
+                     * Ratio
+                     */
+                    maintainAspectRatio: false
+                }
+            });
+
+            /**
+             * Chart
+             */
+            new Chart($('#chartLogs02'), {
+                /**
+                 * Type
+                 */
+                type: 'bar',
+
+                /**
+                 * Data
+                 */
+                data: {
+                    /**
+                     * Labels
+                     */
+                    labels: ['Critical', 'Warning', 'Erro', 'Info'],
+
+                    /**
+                     * Columns
+                     */
+                    datasets: [
+                        /**
+                         * Sales
+                         */
+                        {
+                            label: 'Vendas',
+                            backgroundColor: "#2d3349",
+                            data: [15, 25, 30, 60, 90]
+                        },
+
+                        /**
+                         * Revenues
+                         */
+                        {
+                            label: 'Receitas',
+                            backgroundColor: "#99cfc1",
+                            data: [90, 60, 30, 25, 15]
                         }
                     ],
                 },

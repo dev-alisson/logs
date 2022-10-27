@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
  */
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogController;
 
 /**
@@ -36,20 +36,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
     /**
-     * Dashboard
+     * Home
      */
     Route::get('/admin', [HomeController::class, 'index'])->name('dashboard.index');
-    Route::get('/admin/sales', [HomeController::class, 'sales'])->name('dashboard.sales');
-
-    /**
-     * Users
-     */
-    Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/admin/users/create', [UserController::class, 'create'])->name('users.create');
-    Route::post('/admin/users/store', [UserController::class, 'store'])->name('users.store');
-    Route::get('/admin/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('/admin/users/update/{id}', [UserController::class, 'update'])->name('users.update');
-    Route::post('/admin/users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
     /**
      * Logs
@@ -61,4 +50,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/admin/logs/update/{id}', [LogController::class, 'update'])->name('logs.update');
     Route::post('/admin/logs/destroy/{id}', [LogController::class, 'destroy'])->name('logs.destroy');
     Route::post('/admin/logs/clear', [LogController::class, 'clear'])->name('logs.clear');
+
+    /**
+     * Users
+     */
+    Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/admin/users/create', [UserController::class, 'create'])->name('users.create');
+    Route::post('/admin/users/store', [UserController::class, 'store'])->name('users.store');
+    Route::get('/admin/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/admin/users/update/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::post('/admin/users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 });

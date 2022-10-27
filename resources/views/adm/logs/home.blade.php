@@ -27,20 +27,41 @@
 
             </h2>
 
-            <!-- clear -->
-            <button class="modules__clear js-logs-clear" title="Limpar">
+            <!-- wrapper -->
+            <div class="modules__wrapper">
 
-                <!-- icon -->
-                <i class="ri-delete-bin-6-line modules__icon--plus"></i>
+                <!-- upload -->
+                <button class="modules__upload" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
-                <!-- button -->
-                <span class="modules__legend--button">
+                    <!-- icon -->
+                    <i class="ri-upload-2-line modules__icon--plus"></i>
 
-                    Limpar
+                    <!-- button -->
+                    <span class="modules__legend--button">
 
-                </span>
+                        Upload
 
-            </button>
+                    </span>
+
+                </button>
+
+                <!-- clear -->
+                <button class="modules__clear js-logs-clear" title="Limpar" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+
+                    <!-- icon -->
+                    <i class="ri-delete-bin-6-line modules__icon--plus"></i>
+
+                    <!-- button -->
+                    <span class="modules__legend--button">
+
+                        Limpar
+
+                    </span>
+
+                </button>
+
+            </div>
 
         </header>
 
@@ -79,42 +100,49 @@
                         <!-- column -->
                         <th class="datagrid__column">
 
-                            Autor
+                            Método
 
                         </th>
 
                         <!-- column -->
                         <th class="datagrid__column">
 
-                            Ação
+                            URL
 
                         </th>
 
                         <!-- column -->
                         <th class="datagrid__column">
 
-                            Descrição
+                            ID Consumidor
 
                         </th>
 
                         <!-- column -->
                         <th class="datagrid__column">
 
-                            Level
+                            ID Serviço
 
                         </th>
 
                         <!-- column -->
                         <th class="datagrid__column">
 
-                            Data
+                            Proxy
 
                         </th>
 
                         <!-- column -->
                         <th class="datagrid__column">
 
-                            <!-- empty -->
+                            Gateway
+
+                        </th>
+
+                        <!-- column -->
+                        <th class="datagrid__column">
+
+                            Request
 
                         </th>
 
@@ -141,56 +169,49 @@
                         <!-- data -->
                         <td class="datagrid__data">
 
-                            {{ ($log->user()->first_name ?? '') }}
+                            {{ $log->method }}
 
                         </td>
 
                         <!-- data -->
                         <td class="datagrid__data">
 
-                            {{ $log->action }}
+                            {{ $log->url }}
 
                         </td>
 
                         <!-- data -->
                         <td class="datagrid__data">
 
-                            {{ $log->description }}
+                            {{ $log->consumer_id }}
 
                         </td>
 
                         <!-- data -->
                         <td class="datagrid__data">
 
-                            <!-- badget -->
-                            <span
-                                class="datagrid__badge badge {{ ($log->level == 'info' ? 'bg-primary' : ($log->level == 'warning' ? 'bg-warning' : ($log->level == 'danger' ? 'bg-danger' : ($log->level == 'critical' ? 'bg-dark' : 'bg-light')))) }} {{ ($log->level != 'warning' ? 'text-light' : 'text-dark') }}">
-
-                                <!-- level -->
-                                {{ $log->level }}
-
-                            </span>
+                            {{ $log->service_id }}
 
                         </td>
 
                         <!-- data -->
                         <td class="datagrid__data">
 
-                            {{ date('d/m H:i', strtotime($log->created_at)) }}
+                            {{ $log->proxy }}
 
                         </td>
 
                         <!-- data -->
-                        <td class="datagrid__data datagrid__actions">
+                        <td class="datagrid__data">
 
-                            <!-- button -->
-                            <button class="datagrid__button js-data-remove"
-                                data-action="/admin/logs/destroy/{{ $log->id }}">
+                            {{ $log->gateway }}
 
-                                <!-- icon -->
-                                <i class="ri-delete-bin-6-line modules__icon"></i>
+                        </td>
 
-                            </button>
+                        <!-- data -->
+                        <td class="datagrid__data">
+
+                            {{ $log->request }}
 
                         </td>
 
@@ -207,5 +228,77 @@
     </div>
 
 </section>
+
+<!-- upload -->
+<form class="modal fade js-logs-upload" id="exampleModal" action="/admin/users/store">
+
+    <!-- csrf -->
+    @csrf
+
+    <!-- dialog -->
+    <div class="modal-dialog">
+
+        <!-- content -->
+        <div class="modal-content">
+
+            <!-- header -->
+            <div class="modal-header">
+
+                <!-- title -->
+                <h5 class="modal-title" id="exampleModalLabel">
+
+                    Selecione o arquivo
+
+                </h5>
+
+                <!-- button -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- body -->
+            <div class="modal-body">
+
+                <!-- column -->
+                <div class="mb-3">
+
+                    <!-- field -->
+                    <input class="form-control" type="file" name="file">
+
+                </div>
+
+                <!-- progress -->
+                <div class="modal__progress progress js-progress">
+
+                    <!-- bar -->
+                    <div class="modal__bar progress-bar progress-bar-striped bg-success js-bar"></div>
+
+                </div>
+
+            </div>
+
+            <!-- footer -->
+            <div class="modal-footer">
+
+                <!-- button -->
+                <button type="button" class="modal__button modal__button--close" data-bs-dismiss="modal">
+
+                    Fechar
+
+                </button>
+
+                <!-- button -->
+                <button type="submit" class="modal__button modal__button--send">
+
+                    Enviar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
 
 @endsection
