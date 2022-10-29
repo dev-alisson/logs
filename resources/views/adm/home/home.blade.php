@@ -16,35 +16,145 @@
             <!-- row -->
             <div class="row">
 
-                <!-- export -->
-                <div class="modules__export">
+                <!-- controls -->
+                <div class="mb-5 d-flex justify-content-end">
 
-                    <button class="modules__download modules__download--open" data-bs-toggle="modal"
+                    <!-- upload -->
+                    <button class="modules__upload" data-bs-toggle="modal" data-bs-target="#logsModal">
+
+                        <!-- icon -->
+                        <i class="ri-upload-2-line modules__icon--plus"></i>
+
+                        <!-- button -->
+                        <span class="modules__legend--button">
+
+                            Upload
+
+                        </span>
+
+                    </button>
+
+                    <!-- export -->
+                    <button class="modules__export" title="Exportar" data-bs-toggle="modal"
                         data-bs-target="#reportsModal">
 
                         <!-- icon -->
                         <i class="ri-download-line modules__icon--plus"></i>
 
-                        Exportar
+                        <!-- button -->
+                        <span class="modules__legend--button">
+
+                            Exportar
+
+                        </span>
+
+                    </button>
+
+                    <!-- clear -->
+                    <button class="modules__clear js-logs-clear" title="Limpar">
+
+                        <!-- icon -->
+                        <i class="ri-delete-bin-6-line modules__icon--plus"></i>
+
+                        <!-- button -->
+                        <span class="modules__legend--button">
+
+                            Limpar
+
+                        </span>
 
                     </button>
 
                 </div>
 
                 <!-- upload -->
+                <form class="modal fade js-logs-upload" id="logsModal" action="/admin/users/store">
+
+                    <!-- csrf -->
+                    @csrf
+
+                    <!-- dialog -->
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <!-- content -->
+                        <div class="modal-content">
+
+                            <!-- header -->
+                            <div class="modal-header modal__header">
+
+                                <!-- title -->
+                                <h5 class="modal-title" id="logsModalLabel">
+
+                                    Selecione o arquivo
+
+                                </h5>
+
+                                <!-- button -->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <!-- body -->
+                            <div class="modal-body modal__body">
+
+                                <!-- column -->
+                                <div class="mb-3">
+
+                                    <!-- field -->
+                                    <input class="form-control" type="file" name="file">
+
+                                </div>
+
+                                <!-- progress -->
+                                <div class="modal__progress progress js-progress">
+
+                                    <!-- bar -->
+                                    <div class="modal__bar progress-bar progress-bar-striped bg-success js-bar"></div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- footer -->
+                            <div class="modal-footer modal__footer">
+
+                                <!-- button -->
+                                <button type="button" class="modal__button modal__button--close"
+                                    data-bs-dismiss="modal">
+
+                                    Fechar
+
+                                </button>
+
+                                <!-- button -->
+                                <button type="submit" class="modal__button modal__button--send">
+
+                                    Enviar
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <!-- export -->
                 <form class="modal fade js-export" id="reportsModal" action="/admin/users/store">
 
                     <!-- csrf -->
                     @csrf
 
                     <!-- dialog -->
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
 
                         <!-- content -->
                         <div class="modal-content">
 
                             <!-- header -->
-                            <div class="modal-header">
+                            <div class="modal-header modal__header">
 
                                 <!-- title -->
                                 <h5 class="modal-title" id="reportsModalLabel">
@@ -59,60 +169,65 @@
                             </div>
 
                             <!-- body -->
-                            <div class="modal-body">
+                            <div class="modal-body modal__body">
 
                                 <!-- export -->
-                                <div class="modules__export d-flex justify-content-center">
+                                <div class="row g-3">
 
-                                    <a class="modules__download modules__download--consumer"
-                                        href="{{ route('reports.consumer') }}">
+                                    <div class="col-12 col-md-6 col-xl-4">
 
-                                        <!-- icon -->
-                                        <i class="ri-download-line modules__icon--plus"></i>
+                                        <a class="modal__export modal__export--consumer"
+                                            href="{{ route('reports.consumer') }}">
 
-                                        Por consumidor
+                                            <!-- icon -->
+                                            <i class="ri-download-line modal__icon--export"></i>
 
-                                    </a>
+                                            Por consumidor
 
-                                    <a class="modules__download modules__download--service"
-                                        href="{{ route('reports.service') }}">
+                                        </a>
 
-                                        <!-- icon -->
-                                        <i class="ri-download-line modules__icon--plus"></i>
+                                    </div>
 
-                                        Por serviço
+                                    <div class="col-12 col-md-6 col-xl-4">
 
-                                    </a>
+                                        <a class="modal__export modal__export--service"
+                                            href="{{ route('reports.service') }}">
 
-                                    <a class="modules__download modules__download--media"
-                                        href="{{ route('reports.media') }}">
+                                            <!-- icon -->
+                                            <i class="ri-download-line modal__icon--export"></i>
 
-                                        <!-- icon -->
-                                        <i class="ri-download-line modules__icon--plus"></i>
+                                            Por serviço
 
-                                        Tempo médio
+                                        </a>
 
-                                    </a>
+                                    </div>
+
+                                    <div class="col-12 col-md-6 col-xl-4">
+
+                                        <a class="modal__export modal__export--media"
+                                            href="{{ route('reports.media') }}">
+
+                                            <!-- icon -->
+                                            <i class="ri-download-line modal__icon--export"></i>
+
+                                            Média por serviço
+
+                                        </a>
+
+                                    </div>
 
                                 </div>
 
                             </div>
 
                             <!-- footer -->
-                            <div class="modal-footer">
+                            <div class="modal-footer modal__footer">
 
                                 <!-- button -->
                                 <button type="button" class="modal__button modal__button--close"
                                     data-bs-dismiss="modal">
 
                                     Fechar
-
-                                </button>
-
-                                <!-- button -->
-                                <button type="submit" class="modal__button modal__button--send">
-
-                                    Enviar
 
                                 </button>
 
@@ -162,13 +277,6 @@
 
                             </div>
 
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- -->
-
-                            </div>
-
                         </div>
 
                     </div>
@@ -205,13 +313,6 @@
                                     {{ number_format($totalConsumers, 0, ',', '.') }}
 
                                 </span>
-
-                            </div>
-
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- -->
 
                             </div>
 
@@ -254,13 +355,6 @@
 
                             </div>
 
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- -->
-
-                            </div>
-
                         </div>
 
                     </div>
@@ -297,13 +391,6 @@
                                     {{ number_format($totalMedias->media_proxy, 0, ',', '.') }}
 
                                 </span>
-
-                            </div>
-
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- -->
 
                             </div>
 
@@ -346,13 +433,6 @@
 
                             </div>
 
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- -->
-
-                            </div>
-
                         </div>
 
                     </div>
@@ -392,13 +472,6 @@
 
                             </div>
 
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- -->
-
-                            </div>
-
                         </div>
 
                     </div>
@@ -427,7 +500,7 @@
                     <div class="chart">
 
                         <!-- canvas -->
-                        <canvas id="chartLogs01"></canvas>
+                        <canvas id="chartByConsumers"></canvas>
 
                     </div>
 
@@ -440,7 +513,7 @@
                     <div class="chart flex-fill">
 
                         <!-- chart -->
-                        <canvas id="chartLogs02"></canvas>
+                        <canvas id="chartByServices"></canvas>
 
                     </div>
 

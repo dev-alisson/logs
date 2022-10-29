@@ -27,7 +27,7 @@ class LogByServiceExport implements FromCollection, WithColumnWidths
          * Columns
          */
         $columns = [
-            'SERVICE ID',
+            'SERVIÇO',
             'TOTAL PROXY',
             'TOTAL GATEWAY',
             'TOTAL REQUEST',
@@ -38,10 +38,10 @@ class LogByServiceExport implements FromCollection, WithColumnWidths
          */
         $logs = DB::table('logs')
             ->select(DB::raw('
-                    service_id,
-                    SUM(DISTINCT(proxy)) AS total_proxy,
-                    SUM(DISTINCT(gateway)) AS total_gateway,
-                    SUM(DISTINCT(request)) AS total_request
+                    service_name,
+                    SUM(proxy) AS total_proxy,
+                    SUM(gateway) AS total_gateway,
+                    SUM(request) AS total_request
                 '))
             ->groupBy('service_id')
             ->orderBy('total_proxy', 'DESC')

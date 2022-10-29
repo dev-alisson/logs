@@ -216,6 +216,14 @@ Switch
 Modal
 */
 
+.modal__header {
+    padding: 20px 30px;
+}
+
+.modal__body {
+    padding: 20px 30px;
+}
+
 .modal__button {
     display: flex;
     justify-content: center;
@@ -257,6 +265,66 @@ Modal
     background-color: var(--green-dark);
 }
 
+.modal__export {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--white-light);
+    font-weight: 600;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.modal__export--open {
+    padding: 10px 30px;
+    background-color: var(--blue-light);
+}
+
+.modal__export--open:hover {
+    color: var(--white-light);
+    background-color: var(--blue-dark);
+}
+
+.modal__export--consumer {
+    padding: 10px 0;
+    background-color: var(--blue-dark);
+}
+
+.modal__export--consumer:hover {
+    color: var(--white-light);
+    background-color: var(--blue-light);
+}
+
+.modal__export--service {
+    padding: 10px 0;
+    background-color: var(--green-dark);
+}
+
+.modal__export--service:hover {
+    color: var(--white-light);
+    background-color: var(--green-light);
+}
+
+.modal__export--media {
+    padding: 10px 0;
+    background-color: var(--orange-dark);
+}
+
+.modal__export--media:hover {
+    color: var(--white-light);
+    background-color: var(--orange-light);
+}
+
+.modal__icon--export {
+    margin-right: 15px;
+}
+
 .modal__progress {
     display: none;
     height: 25px;
@@ -264,6 +332,10 @@ Modal
 
 .modal__bar {
     height: 100%;
+}
+
+.modal__footer {
+    padding: 15px 30px;
 }
 
 /*
@@ -484,11 +556,11 @@ modules
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: var(--white-light);
     font-weight: 600;
     padding: 10px 30px;
-    margin-right: 20px;
+    margin-right: 10px;
     background-color: var(--green-light);
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
@@ -504,11 +576,35 @@ modules
     background-color: var(--green-dark);
 }
 
+.modules__export {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--white-light);
+    font-weight: 600;
+    padding: 10px 30px;
+    margin-right: 10px;
+    background-color: var(--blue-light);
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.modules__export:hover {
+    color: var(--white-light);
+    background-color: var(--blue-dark);
+}
+
 .modules__plus {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: var(--white-light);
     font-weight: 600;
     padding: 10px 30px;
@@ -652,70 +748,6 @@ modules
 
 .modules__icon--action {
     font-size: 1.25rem;
-}
-
-.modules__export {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.modules__download {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.875rem;
-    color: var(--white-light);
-    font-weight: 600;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    border-radius: 7px;
-    -webkit-transition: background-color 0.2s ease-in-out;
-    -moz-transition: background-color 0.2s ease-in-out;
-    -o-transition: background-color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.modules__download--open {
-    padding: 10px 75px;
-    margin-bottom: 30px;
-    background-color: var(--yellow-dark);
-}
-
-.modules__download--open:hover {
-    color: var(--white-light);
-    background-color: var(--green-light);
-}
-
-.modules__download--consumer {
-    padding: 10px 50px;
-    margin: 0 10px;
-    background-color: var(--blue-dark);
-}
-
-.modules__download--consumer:hover {
-    color: var(--white-light);
-    background-color: var(--blue-light);
-}
-
-.modules__download--service {
-    padding: 10px 50px;
-    margin: 0 10px;
-    background-color: var(--green-dark);
-}
-
-.modules__download--service:hover {
-    color: var(--white-light);
-    background-color: var(--green-light);
-}
-
-.modules__download--media {
-    padding: 10px 50px;
-    background-color: var(--orange-dark);
-}
-
-.modules__download--media:hover {
-    color: var(--white-light);
-    background-color: var(--orange-light);
 }
 
 /* 650px */
@@ -965,10 +997,6 @@ Reports
     display: flex;
     justify-content: center;
     position: relative;
-}
-
-.reports__content {
-    width: 100%;
     background-color: #ffffff;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -976,7 +1004,12 @@ Reports
     -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid var(--green-light);
     overflow: hidden;
+}
+
+.reports__content {
+    width: 100%;
 }
 
 .reports__header {

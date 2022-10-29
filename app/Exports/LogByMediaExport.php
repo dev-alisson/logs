@@ -27,7 +27,7 @@ class LogByMediaExport implements FromCollection, WithColumnWidths
          * Columns
          */
         $columns = [
-            'SERVICE ID',
+            'SERVIÇO',
             'MÉDIA PROXY',
             'MÉDIA GATEWAY',
             'MÉDIA REQUEST',
@@ -38,10 +38,10 @@ class LogByMediaExport implements FromCollection, WithColumnWidths
          */
         $logs = DB::table('logs')
             ->select(DB::raw('
-                    service_id,
-                    AVG(proxy) AS media_proxy,
-                    AVG(gateway) AS media_gateway,
-                    AVG(request) AS media_request
+                    service_name,
+                    ROUND(AVG(proxy), 0) AS media_proxy,
+                    ROUND(AVG(gateway), 0) AS media_gateway,
+                    ROUND(AVG(request), 0) AS media_request
                 '))
             ->groupBy('service_id')
             ->get();

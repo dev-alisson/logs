@@ -19,10 +19,10 @@ class CreateLogsTable extends Migration
             $table->string('url')->nullable();
             $table->string('consumer_id')->nullable();
             $table->string('service_id')->nullable();
+            $table->string('service_name')->nullable();
             $table->integer('proxy')->nullable();
             $table->integer('gateway')->nullable();
             $table->integer('request')->nullable();
-            $table->softDeletes();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

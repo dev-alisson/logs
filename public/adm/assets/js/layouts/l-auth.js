@@ -1,13 +1,64 @@
 $(function () {
     /**
-     * Login :: carousel
+     * Password
      */
+    $('html').on('click', '.js-password-view', function (e) {
+
+        /**
+         * Icon
+         */
+        let icon = $(this);
+
+        /**
+         * Field
+         */
+        let field = $('.js-password-field');
+
+        /**
+         * Type
+         */
+        let type = field.attr('type');
+
+        /**
+         * Verify
+         */
+        if (type == 'password') {
+            /**
+             * Text
+             */
+            field.prop('type', 'text');
+
+            /**
+             * Hide
+             */
+            icon.removeClass('ri-eye-off-line');
+
+            /**
+             * View
+             */
+            icon.addClass('ri-eye-line');
+        } else {
+            /**
+             * Password
+             */
+            field.prop('type', 'password');
+
+            /**
+             * Hide
+             */
+            icon.removeClass('ri-eye-line');
+
+            /**
+             * View
+             */
+            icon.addClass('ri-eye-off-line');
+        }
+    });
 
     /**
-     * Ativa o carrossel
-     * da página de login
+     * Carousel
      */
-    $('.js-login-carousel').owlCarousel({
+    $('.js-carousel').owlCarousel({
         /**
          * Define que o carrossel
          * ficará em repetição

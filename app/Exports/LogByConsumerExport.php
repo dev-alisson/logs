@@ -39,9 +39,9 @@ class LogByConsumerExport implements FromCollection, WithColumnWidths
         $logs = DB::table('logs')
             ->select(DB::raw('
                     consumer_id,
-                    SUM(DISTINCT(proxy)) AS total_proxy,
-                    SUM(DISTINCT(gateway)) AS total_gateway,
-                    SUM(DISTINCT(request)) AS total_request
+                    SUM(proxy) AS total_proxy,
+                    SUM(gateway) AS total_gateway,
+                    SUM(request) AS total_request
                 '))
             ->groupBy('consumer_id')
             ->orderBy('total_proxy', 'DESC')

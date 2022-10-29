@@ -10,7 +10,7 @@ $(function () {
     const csrf = meta.attr('content')
 
     /**
-     * Logs
+     * Charts
      */
     $.ajax({
         /**
@@ -21,7 +21,7 @@ $(function () {
         /**
          * URL
          */
-        url: '/admin/logs',
+        url: '/admin/charts',
 
         /**
          * Headers
@@ -35,7 +35,7 @@ $(function () {
             /**
              * Chart
              */
-            new Chart($('#chartLogs01'), {
+            new Chart($('#chartByConsumers'), {
                 /**
                  * Type
                  */
@@ -48,28 +48,37 @@ $(function () {
                     /**
                      * Labels
                      */
-                    labels: ['Critical', 'Warning', 'Erro', 'Info'],
+                    labels: data.namesConsumers,
 
                     /**
                      * Columns
                      */
                     datasets: [
                         /**
-                         * Sales
+                         * Proxy
                          */
                         {
-                            label: 'Vendas',
-                            backgroundColor: "#2d3349",
-                            data: [15, 25, 30, 60, 90]
+                            label: 'Proxy',
+                            backgroundColor: "#99cfc1",
+                            data: data.proxysConsumers
                         },
 
                         /**
-                         * Revenues
+                         * Gateway
                          */
                         {
-                            label: 'Receitas',
-                            backgroundColor: "#99cfc1",
-                            data: [90, 60, 30, 25, 15]
+                            label: 'Gateway',
+                            backgroundColor: "#eab94a",
+                            data: data.gatewaysConsumers
+                        },
+
+                        /**
+                         * Request
+                         */
+                        {
+                            label: 'Request',
+                            backgroundColor: "#2d3349",
+                            data: data.requestsConsumers
                         }
                     ],
                 },
@@ -86,14 +95,34 @@ $(function () {
                     /**
                      * Ratio
                      */
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+
+                    /**
+                     * Plugins
+                     */
+                    plugins: {
+                        /**
+                         * Title
+                         */
+                        title: {
+                            /**
+                             * Display
+                             */
+                            display: true,
+
+                            /**
+                             * Text
+                             */
+                            text: 'Gráfico por consumidores'
+                        }
+                    }
                 }
             });
 
             /**
              * Chart
              */
-            new Chart($('#chartLogs02'), {
+            new Chart($('#chartByServices'), {
                 /**
                  * Type
                  */
@@ -106,28 +135,37 @@ $(function () {
                     /**
                      * Labels
                      */
-                    labels: ['Critical', 'Warning', 'Erro', 'Info'],
+                    labels: data.namesServices,
 
                     /**
                      * Columns
                      */
                     datasets: [
                         /**
-                         * Sales
+                         * Proxy
                          */
                         {
-                            label: 'Vendas',
-                            backgroundColor: "#2d3349",
-                            data: [15, 25, 30, 60, 90]
+                            label: 'Proxy',
+                            backgroundColor: "#99cfc1",
+                            data: data.proxysServices
                         },
 
                         /**
-                         * Revenues
+                         * Gateway
                          */
                         {
-                            label: 'Receitas',
-                            backgroundColor: "#99cfc1",
-                            data: [90, 60, 30, 25, 15]
+                            label: 'Gateway',
+                            backgroundColor: "#eab94a",
+                            data: data.gatewaysServices
+                        },
+
+                        /**
+                         * Request
+                         */
+                        {
+                            label: 'Request',
+                            backgroundColor: "#2d3349",
+                            data: data.requestsServices
                         }
                     ],
                 },
@@ -144,7 +182,27 @@ $(function () {
                     /**
                      * Ratio
                      */
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+
+                    /**
+                     * Plugins
+                     */
+                    plugins: {
+                        /**
+                         * Title
+                         */
+                        title: {
+                            /**
+                             * Display
+                             */
+                            display: true,
+
+                            /**
+                             * Text
+                             */
+                            text: 'Gráfico por serviços'
+                        }
+                    }
                 }
             });
         }

@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
      * Home
      */
     Route::get('/admin', [HomeController::class, 'index'])->name('dashboard.index');
+    Route::get('/admin/charts', [HomeController::class, 'charts'])->name('dashboard.charts');
 
     /**
      * Logs

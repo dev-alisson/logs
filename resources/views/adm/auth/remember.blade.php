@@ -125,7 +125,7 @@
                 <div class="login__carousel">
 
                     <!-- owl-carousel -->
-                    <div class="owl-carousel owl-theme js-login-carousel">
+                    <div class="owl-carousel owl-theme js-carousel">
 
                         <!-- resources -->
                         <div class="login__resource">

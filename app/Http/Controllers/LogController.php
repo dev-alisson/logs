@@ -183,6 +183,16 @@ class LogController extends Controller
                              */
                             $log->service_id = $data->service->id;
                         }
+
+                        /**
+                         * Verify :: name
+                         */
+                        if (isset($data->service->name)) {
+                            /**
+                             * service
+                             */
+                            $log->service_name = $data->service->name;
+                        }
                     }
 
                     /**
@@ -221,15 +231,25 @@ class LogController extends Controller
                     }
 
                     /**
-                     * Save
+                     * Verify
                      */
-                    $log->save();
+                    if ($log->getAttributes()) {
+                        /**
+                         * Save
+                         */
+                        $log->save();
+                    }
                 }
 
                 /**
                  * Close
                  */
                 fclose($file);
+
+                /**
+                 * Remove
+                 */
+                unlink($logs);
             }
 
             /**
