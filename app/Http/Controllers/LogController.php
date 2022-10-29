@@ -26,7 +26,7 @@ class LogController extends Controller
             /**
              * Logs
              */
-            $logs = Log::limit(1000)->get();
+            $logs = Log::limit(150)->get();
 
             /**
              * View

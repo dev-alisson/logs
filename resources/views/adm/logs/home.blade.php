@@ -31,7 +31,7 @@
             <div class="modules__wrapper">
 
                 <!-- upload -->
-                <button class="modules__upload" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button class="modules__upload" data-bs-toggle="modal" data-bs-target="#logsModal">
 
                     <!-- icon -->
                     <i class="ri-upload-2-line modules__icon--plus"></i>
@@ -47,7 +47,7 @@
 
                 <!-- clear -->
                 <button class="modules__clear js-logs-clear" title="Limpar" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
+                    data-bs-target="#logsModal">
 
                     <!-- icon -->
                     <i class="ri-delete-bin-6-line modules__icon--plus"></i>
@@ -230,7 +230,7 @@
 </section>
 
 <!-- upload -->
-<form class="modal fade js-logs-upload" id="exampleModal" action="/admin/users/store">
+<form class="modal fade js-logs-upload" id="logsModal" action="/admin/users/store">
 
     <!-- csrf -->
     @csrf
@@ -245,7 +245,7 @@
             <div class="modal-header">
 
                 <!-- title -->
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h5 class="modal-title" id="logsModalLabel">
 
                     Selecione o arquivo
 

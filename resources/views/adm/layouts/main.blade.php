@@ -46,7 +46,8 @@
                     <li class="header__item js-cart-button">
 
                         <!-- button -->
-                        <a class="header__button is-active" href="/admin" title="Home">
+                        <a class="header__button {{ (request()->is('admin')) ? 'is-active' : '' }}" href="/admin"
+                            title="Home">
 
                             <!-- icon -->
                             <i class="ri-home-4-line header__icon--button"></i>
@@ -66,7 +67,8 @@
                     <li class="header__item js-cart-button">
 
                         <!-- button -->
-                        <a class="header__button" href="/admin/logs" title="Logs">
+                        <a class="header__button {{ (request()->is('admin/logs')) ? 'is-active' : '' }}"
+                            href="/admin/logs" title="Logs">
 
                             <!-- icon -->
                             <i class="ri-hammer-line header__icon--button"></i>
@@ -86,7 +88,8 @@
                     <li class="header__item js-cart-button">
 
                         <!-- button -->
-                        <a class="header__button" href="/admin/users" title="Usuários">
+                        <a class="header__button {{ (request()->is('admin/users*')) ? 'is-active' : '' }}"
+                            href="/admin/users" title="Usuários">
 
                             <!-- icon -->
                             <i class="ri-user-line header__icon--button"></i>

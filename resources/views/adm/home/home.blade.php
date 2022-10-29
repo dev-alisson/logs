@@ -14,10 +14,123 @@
         <div class="container">
 
             <!-- row -->
+            <div class="row">
+
+                <!-- export -->
+                <div class="modules__export">
+
+                    <button class="modules__download modules__download--open" data-bs-toggle="modal"
+                        data-bs-target="#reportsModal">
+
+                        <!-- icon -->
+                        <i class="ri-download-line modules__icon--plus"></i>
+
+                        Exportar
+
+                    </button>
+
+                </div>
+
+                <!-- upload -->
+                <form class="modal fade js-export" id="reportsModal" action="/admin/users/store">
+
+                    <!-- csrf -->
+                    @csrf
+
+                    <!-- dialog -->
+                    <div class="modal-dialog modal-lg">
+
+                        <!-- content -->
+                        <div class="modal-content">
+
+                            <!-- header -->
+                            <div class="modal-header">
+
+                                <!-- title -->
+                                <h5 class="modal-title" id="reportsModalLabel">
+
+                                    Selecione o modelo
+
+                                </h5>
+
+                                <!-- button -->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <!-- body -->
+                            <div class="modal-body">
+
+                                <!-- export -->
+                                <div class="modules__export d-flex justify-content-center">
+
+                                    <a class="modules__download modules__download--consumer"
+                                        href="{{ route('reports.consumer') }}">
+
+                                        <!-- icon -->
+                                        <i class="ri-download-line modules__icon--plus"></i>
+
+                                        Por consumidor
+
+                                    </a>
+
+                                    <a class="modules__download modules__download--service"
+                                        href="{{ route('reports.service') }}">
+
+                                        <!-- icon -->
+                                        <i class="ri-download-line modules__icon--plus"></i>
+
+                                        Por serviço
+
+                                    </a>
+
+                                    <a class="modules__download modules__download--media"
+                                        href="{{ route('reports.media') }}">
+
+                                        <!-- icon -->
+                                        <i class="ri-download-line modules__icon--plus"></i>
+
+                                        Tempo médio
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                            <!-- footer -->
+                            <div class="modal-footer">
+
+                                <!-- button -->
+                                <button type="button" class="modal__button modal__button--close"
+                                    data-bs-dismiss="modal">
+
+                                    Fechar
+
+                                </button>
+
+                                <!-- button -->
+                                <button type="submit" class="modal__button modal__button--send">
+
+                                    Enviar
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- row -->
             <div class="row gy-3">
 
                 <!-- column -->
-                <div class="col-12 col-sm-6 col-xl-3">
+                <div class="col-6 col-sm-4 col-xl-2">
 
                     <!-- panel -->
                     <div class="reports__panel">
@@ -31,14 +144,7 @@
                                 <!-- period -->
                                 <span class="reports__period">
 
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
+                                    Logs
 
                                 </span>
 
@@ -47,13 +153,10 @@
                             <!-- body -->
                             <div class="reports__body">
 
-                                <!-- icon -->
-                                <i class="ri-user-line reports__icon"></i>
-
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    326
+                                    {{ number_format($totalLogs, 0, ',', '.') }}
 
                                 </span>
 
@@ -62,153 +165,18 @@
                             <!-- footer -->
                             <div class="reports__footer">
 
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Clientes
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-danger">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-down-fill badge__icon"></i>
-
-                                    Ruim
-
-                                </span>
+                                <!-- -->
 
                             </div>
 
                         </div>
 
-                        <!-- content -->
-                        <div class="reports__content">
-
-                            <!-- header -->
-                            <div class="reports__header">
-
-                                <!-- period -->
-                                <span class="reports__period">
-
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
-
-                                </span>
-
-                            </div>
-
-                            <!-- body -->
-                            <div class="reports__body">
-
-                                <!-- icon -->
-                                <i class="ri-user-line reports__icon"></i>
-
-                                <!-- total -->
-                                <span class="reports__total">
-
-                                    326
-
-                                </span>
-
-                            </div>
-
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Clientes
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-danger">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-down-fill badge__icon"></i>
-
-                                    Ruim
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                        <!-- content -->
-                        <div class="reports__content">
-
-                            <!-- header -->
-                            <div class="reports__header">
-
-                                <!-- period -->
-                                <span class="reports__period">
-
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
-
-                                </span>
-
-                            </div>
-
-                            <!-- body -->
-                            <div class="reports__body">
-
-                                <!-- icon -->
-                                <i class="ri-user-line reports__icon"></i>
-
-                                <!-- total -->
-                                <span class="reports__total">
-
-                                    326
-
-                                </span>
-
-                            </div>
-
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Clientes
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-danger">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-down-fill badge__icon"></i>
-
-                                    Ruim
-
-                                </span>
-
-                            </div>
-
-                        </div>
                     </div>
+
                 </div>
 
                 <!-- column -->
-                <div class="col-12 col-sm-6 col-xl-3">
+                <div class="col-6 col-sm-4 col-xl-2">
 
                     <!-- panel -->
                     <div class="reports__panel">
@@ -222,14 +190,7 @@
                                 <!-- period -->
                                 <span class="reports__period">
 
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
+                                    Consumidores
 
                                 </span>
 
@@ -238,13 +199,10 @@
                             <!-- body -->
                             <div class="reports__body">
 
-                                <!-- icon -->
-                                <i class="ri-truck-line reports__icon"></i>
-
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    32
+                                    {{ number_format($totalConsumers, 0, ',', '.') }}
 
                                 </span>
 
@@ -253,153 +211,18 @@
                             <!-- footer -->
                             <div class="reports__footer">
 
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Vendedores
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-success">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-up-fill badge__icon"></i>
-
-                                    Ótimo
-
-                                </span>
+                                <!-- -->
 
                             </div>
 
                         </div>
 
-                        <!-- content -->
-                        <div class="reports__content">
-
-                            <!-- header -->
-                            <div class="reports__header">
-
-                                <!-- period -->
-                                <span class="reports__period">
-
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
-
-                                </span>
-
-                            </div>
-
-                            <!-- body -->
-                            <div class="reports__body">
-
-                                <!-- icon -->
-                                <i class="ri-truck-line reports__icon"></i>
-
-                                <!-- total -->
-                                <span class="reports__total">
-
-                                    32
-
-                                </span>
-
-                            </div>
-
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Vendedores
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-success">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-up-fill badge__icon"></i>
-
-                                    Ótimo
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                        <!-- content -->
-                        <div class="reports__content">
-
-                            <!-- header -->
-                            <div class="reports__header">
-
-                                <!-- period -->
-                                <span class="reports__period">
-
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
-
-                                </span>
-
-                            </div>
-
-                            <!-- body -->
-                            <div class="reports__body">
-
-                                <!-- icon -->
-                                <i class="ri-truck-line reports__icon"></i>
-
-                                <!-- total -->
-                                <span class="reports__total">
-
-                                    32
-
-                                </span>
-
-                            </div>
-
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Vendedores
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-success">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-up-fill badge__icon"></i>
-
-                                    Ótimo
-
-                                </span>
-
-                            </div>
-
-                        </div>
                     </div>
+
                 </div>
 
                 <!-- column -->
-                <div class="col-12 col-sm-6 col-xl-3">
+                <div class="col-6 col-sm-4 col-xl-2">
 
                     <!-- panel -->
                     <div class="reports__panel">
@@ -413,14 +236,7 @@
                                 <!-- period -->
                                 <span class="reports__period">
 
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
+                                    Serviços
 
                                 </span>
 
@@ -429,13 +245,10 @@
                             <!-- body -->
                             <div class="reports__body">
 
-                                <!-- icon -->
-                                <i class="ri-rocket-line reports__icon"></i>
-
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    417
+                                    {{ number_format($totalServices, 0, ',', '.') }}
 
                                 </span>
 
@@ -444,153 +257,18 @@
                             <!-- footer -->
                             <div class="reports__footer">
 
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Produtos
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-warning">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-right-fill badge__icon"></i>
-
-                                    Normal
-
-                                </span>
+                                <!-- -->
 
                             </div>
 
                         </div>
 
-                        <!-- content -->
-                        <div class="reports__content">
-
-                            <!-- header -->
-                            <div class="reports__header">
-
-                                <!-- period -->
-                                <span class="reports__period">
-
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
-
-                                </span>
-
-                            </div>
-
-                            <!-- body -->
-                            <div class="reports__body">
-
-                                <!-- icon -->
-                                <i class="ri-rocket-line reports__icon"></i>
-
-                                <!-- total -->
-                                <span class="reports__total">
-
-                                    417
-
-                                </span>
-
-                            </div>
-
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Produtos
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-warning">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-right-fill badge__icon"></i>
-
-                                    Normal
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                        <!-- content -->
-                        <div class="reports__content">
-
-                            <!-- header -->
-                            <div class="reports__header">
-
-                                <!-- period -->
-                                <span class="reports__period">
-
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
-
-                                </span>
-
-                            </div>
-
-                            <!-- body -->
-                            <div class="reports__body">
-
-                                <!-- icon -->
-                                <i class="ri-rocket-line reports__icon"></i>
-
-                                <!-- total -->
-                                <span class="reports__total">
-
-                                    417
-
-                                </span>
-
-                            </div>
-
-                            <!-- footer -->
-                            <div class="reports__footer">
-
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Produtos
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-warning">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-right-fill badge__icon"></i>
-
-                                    Normal
-
-                                </span>
-
-                            </div>
-
-                        </div>
                     </div>
+
                 </div>
 
                 <!-- column -->
-                <div class="col-12 col-sm-6 col-xl-3">
+                <div class="col-6 col-sm-4 col-xl-2">
 
                     <!-- panel -->
                     <div class="reports__panel">
@@ -604,14 +282,7 @@
                                 <!-- period -->
                                 <span class="reports__period">
 
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
+                                    Média proxy
 
                                 </span>
 
@@ -620,13 +291,10 @@
                             <!-- body -->
                             <div class="reports__body">
 
-                                <!-- icon -->
-                                <i class="ri-shopping-bag-line reports__icon"></i>
-
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    149
+                                    {{ number_format($totalMedias->media_proxy, 0, ',', '.') }}
 
                                 </span>
 
@@ -635,26 +303,21 @@
                             <!-- footer -->
                             <div class="reports__footer">
 
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Pedidos
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-success">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-up-fill badge__icon"></i>
-
-                                    Ótimo
-
-                                </span>
+                                <!-- -->
 
                             </div>
 
                         </div>
+
+                    </div>
+
+                </div>
+
+                <!-- column -->
+                <div class="col-6 col-sm-4 col-xl-2">
+
+                    <!-- panel -->
+                    <div class="reports__panel">
 
                         <!-- content -->
                         <div class="reports__content">
@@ -665,14 +328,7 @@
                                 <!-- period -->
                                 <span class="reports__period">
 
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
+                                    Média gateway
 
                                 </span>
 
@@ -681,13 +337,10 @@
                             <!-- body -->
                             <div class="reports__body">
 
-                                <!-- icon -->
-                                <i class="ri-shopping-bag-line reports__icon"></i>
-
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    36
+                                    {{ number_format($totalMedias->media_gateway, 0, ',', '.') }}
 
                                 </span>
 
@@ -696,26 +349,21 @@
                             <!-- footer -->
                             <div class="reports__footer">
 
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Pedidos
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-success">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-up-fill badge__icon"></i>
-
-                                    Ótimo
-
-                                </span>
+                                <!-- -->
 
                             </div>
 
                         </div>
+
+                    </div>
+
+                </div>
+
+                <!-- column -->
+                <div class="col-6 col-sm-4 col-xl-2">
+
+                    <!-- panel -->
+                    <div class="reports__panel">
 
                         <!-- content -->
                         <div class="reports__content">
@@ -726,14 +374,7 @@
                                 <!-- period -->
                                 <span class="reports__period">
 
-                                    Outubro
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="badge bg-light text-dark">
-
-                                    Baixa de -3.5%
+                                    Média request
 
                                 </span>
 
@@ -742,13 +383,10 @@
                             <!-- body -->
                             <div class="reports__body">
 
-                                <!-- icon -->
-                                <i class="ri-shopping-bag-line reports__icon"></i>
-
                                 <!-- total -->
                                 <span class="reports__total">
 
-                                    36
+                                    {{ number_format($totalMedias->media_request, 0, ',', '.') }}
 
                                 </span>
 
@@ -757,22 +395,7 @@
                             <!-- footer -->
                             <div class="reports__footer">
 
-                                <!-- type -->
-                                <span class="reports__type">
-
-                                    Pedidos
-
-                                </span>
-
-                                <!-- badge -->
-                                <span class="reports__badge badge bg-success">
-
-                                    <!-- icon -->
-                                    <i class="ri-arrow-up-fill badge__icon"></i>
-
-                                    Ótimo
-
-                                </span>
+                                <!-- -->
 
                             </div>
 
@@ -798,12 +421,12 @@
             <div class="row g-4">
 
                 <!-- column -->
-                <div class="col-12 col-xl-6 d-flex">
+                <div class="col-12 col-xl-6">
 
-                    <!-- orders -->
-                    <div class="chart flex-fill">
+                    <!-- chart -->
+                    <div class="chart">
 
-                        <!-- chart -->
+                        <!-- canvas -->
                         <canvas id="chartLogs01"></canvas>
 
                     </div>

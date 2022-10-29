@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\ReportController;
 
 /**
  * Guest
@@ -60,4 +61,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/admin/users/update/{id}', [UserController::class, 'update'])->name('users.update');
     Route::post('/admin/users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    /**
+     * Report
+     */
+    Route::get('/reports/consumer', [ReportController::class, 'consumer'])->name('reports.consumer');
+    Route::get('/reports/service', [ReportController::class, 'service'])->name('reports.service');
+    Route::get('/reports/media', [ReportController::class, 'media'])->name('reports.media');
 });
