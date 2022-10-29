@@ -31,7 +31,7 @@ Na raiz do projeto deixarei o arquivo database.sql para facilitar no processo de
 
 ## Acesso:
 
-Também foi implementado um sistema de cadastro de usuário e autenticação, onde para acessar vc poderá se cadastrar com qualquer e-mail FAKE e assim poder efetuar login. Se você importou o arquivo database.sql, você poderá acessar com o usuário o usuário e senha abaixo.
+Também foi implementado um sistema de cadastro de usuário e autenticação, onde para acessar vc poderá se cadastrar com qualquer e-mail FAKE e assim poder efetuar login. Se você importou o arquivo database.sql, você poderá acessar com o usuário e senha abaixo.
 
 e-mail: alissonpereira1993@gmail.com <br/>
 senha: password
