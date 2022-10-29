@@ -14,7 +14,7 @@
 
 ## Instalação
 
-- Faça o download do repositório
+- Faça o download do repositório (OBS: isso poderá demorá um pouco devido conter 117MB em arquivos de logs para importações)
 - Acesse a aplicação no seu editor de código favorito
 - No terminal, execute o comando [ composer install ] para instalar as dependências do projeto
 - Acesse uma ferramenta de gerenciamento de base de dados e defina uma base de dados com o nome 'logs'
@@ -55,7 +55,15 @@ Acesse a pasta [ <strong>./storage</strong> ] que se encontra na raiz do projeto
 Utilizei o arquivo de logs que continha 100.000 logs e dividi esse arquivo em outros 10 arquivo logs.txt igualmente, ficando assim 10 arquivos cada um com 10.000 logs. Essa divisão de logs foi necessária para que vcs pudessem testar a aplicação sem precisar reajustar as configurações do PHP pois para que fosse possível subir uma grande quantidade de logs de uma só vez seria preciso uma configuração específica de ambiente PHP.
 
 <strong>
-
     De qualquer forma, você poderá subir os 10 arquivos de logs.txt um por vez e ter da mesma forma 100.000 logs ao final das importações.
-    
+</strong>
+
+<br/>
+
+## Importação de logs:
+
+<br/>
+
+<strong>
+    Durante o desenvolvimento eu percebi que o processo de importação de logs eu percebi que isso geralmente demora em média 30 segundos
 </strong>
