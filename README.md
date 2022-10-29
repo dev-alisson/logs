@@ -1,64 +1,61 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Gerenciador de Logs
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Sistema de gerenciamento de logs desenvolvido com laravel 9.x
 
-## About Laravel
+<br/>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requisitos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- PHP >= 7.4
+- Composer
+- MySQL
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<br/>
 
-## Learning Laravel
+## Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Faça o download do repositório
+- Acesse a aplicação no seu editor de código favorito
+- No terminal, execute o comando [ composer install ] para instalar as dependências do projeto
+- Acesse uma ferramenta de gerenciamento de base de dados e defina uma base de dados com o nome 'logs'
+- Ainda no terminal, execute o comando [ php artisan migrate ] para instalar a base de dados
+- Feito a instalação do banco de dados, execute o comando [ php artisan serve ] para iniciar a aplicação
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<br/>
 
-## Laravel Sponsors
+## Base de dados:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Na raiz do projeto deixarei o arquivo database.sql para facilitar no processo de testes, pois já conta com registros de usuários fictícios
 
-### Premium Partners
+<br/>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Acesso:
 
-## Contributing
+Também foi implementado um sistema de cadastro de usuário e autenticação, onde para acessar vc poderá se cadastrar com qualquer e-mail FAKE e assim poder efetuar login. Se você importou o arquivo database.sql, você poderá acessar com o usuário o usuário e senha abaixo.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+e-mail: alissonpereira1993@gmail.com <br/>
+senha: password
 
-## Code of Conduct
+<br/>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Guia de utilização:
 
-## Security Vulnerabilities
+<br/>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Acesse a pasta [ <strong>./storage</strong> ] que se encontra na raiz do projeto e dentro dela acesse a pasta [ <strong>tmp</strong> ]. Dentro dessa pasta, você encontrará 10 arquivos de logs.txt, utilize esses arquivos para faz uploads dentro da aplicação e assim poder popular a base de dados de logs.
 
-## License
+<strong>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ./storage/tmp
+    
+</strong>
+
+<br/>
+
+Utilizei o arquivo de logs que continha 100.000 logs e dividi esse arquivo em outros 10 arquivo logs.txt igualmente, ficando assim 10 arquivos cada um com 10.000 logs. Essa divisão de logs foi necessária para que vcs pudessem testar a aplicação sem precisar reajustar as configurações do PHP pois para que fosse possível subir uma grande quantidade de logs de uma só vez seria preciso uma configuração específica de ambiente PHP.
+
+<strong>
+
+    De qualquer forma, você poderá subir os 10 arquivos de logs.txt um por vez e ter da mesma forma 100.000 logs ao final das importações.
+    
+</strong>
