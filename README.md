@@ -38,7 +38,7 @@ senha: password
 
 <br/>
 
-## Guia de utilização:
+## Importação de logs:
 
 <br/>
 
@@ -69,10 +69,8 @@ Utilizei o arquivo de logs que continha 100.000 logs e dividi esse arquivo em ou
 
 <br/>
 
-## Importação de logs:
-
-<br/>
-
 <strong>
-    Durante o desenvolvimento eu percebi que o processo de importação de logs geralmente demova em média 30 segundos
+
+    OBS: O processo de importação de logs geralmente demova em média 30 segundos
+
 </strong>
