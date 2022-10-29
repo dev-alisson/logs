@@ -44,11 +44,20 @@ senha: password
 
 Acesse a pasta [ <strong>./storage</strong> ] que se encontra na raiz do projeto e dentro dela acesse a pasta [ <strong>tmp</strong> ]. Dentro dessa pasta, você encontrará 10 arquivos de <strong>logs.txt</strong>, utilize esses arquivos para faz uploads dentro da aplicação e assim poder popular a base de dados de logs.
 
-<strong>
+<br/>
 
-    ./storage/tmp
-    
-</strong>
+<strong>./storage/tmp</strong>
+
+- logs_01.txt
+- logs_02.txt
+- logs_03.txt
+- logs_04.txt
+- logs_05.txt
+- logs_06.txt
+- logs_07.txt
+- logs_08.txt
+- logs_09.txt
+- logs_10.txt
 
 <br/>
 
