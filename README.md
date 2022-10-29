@@ -17,6 +17,7 @@
 - Faça o download do repositório (OBS: isso poderá demorá um pouco devido conter 117MB em arquivos de logs para importações)
 - Acesse a aplicação no seu editor de código favorito
 - No terminal, execute o comando [ composer install ] para instalar as dependências do projeto
+- Renomei o arquivo [ .env.example ] para [ .env ]
 - Acesse uma ferramenta de gerenciamento de base de dados e defina uma base de dados com o nome 'logs'
 - Ainda no terminal, execute o comando [ php artisan migrate ] para instalar a base de dados
 - Feito a instalação do banco de dados, execute o comando [ php artisan serve ] para iniciar a aplicação
