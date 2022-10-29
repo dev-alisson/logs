@@ -68,6 +68,7 @@ Utilizei o arquivo de logs que continha 100.000 logs e dividi esse arquivo em ou
 </strong>
 
 <br/>
+<br/>
 
 <strong>
 
