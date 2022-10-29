@@ -31,7 +31,7 @@ Na raiz do projeto deixarei o arquivo database.sql para facilitar no processo de
 
 ## Acesso:
 
-Também foi implementado um sistema de cadastro de usuário e autenticação, onde para acessar vc poderá se cadastrar com qualquer e-mail FAKE e assim poder efetuar login. Se você importou o arquivo database.sql, você poderá acessar com o usuário e senha abaixo.
+Também foi implementado um sistema de cadastro de usuário e autenticação, onde para acessar você poderá se cadastrar com qualquer e-mail FAKE e assim poder efetuar login. Se você importou o arquivo database.sql, você poderá acessar com o usuário e senha abaixo.
 
 e-mail: alissonpereira1993@gmail.com <br/>
 senha: password
@@ -61,7 +61,7 @@ Acesse a pasta [ <strong>./storage</strong> ] que se encontra na raiz do projeto
 
 <br/>
 
-Utilizei o arquivo de logs que continha 100.000 logs e dividi esse arquivo em outros 10 arquivo logs.txt igualmente, ficando assim 10 arquivos cada um com 10.000 logs. Essa divisão de logs foi necessária para que vcs pudessem testar a aplicação sem precisar reajustar as configurações do PHP pois para que fosse possível subir uma grande quantidade de logs de uma só vez seria preciso uma configuração específica de ambiente PHP.
+Utilizei o arquivo de logs que continha 100.000 logs e dividi esse arquivo em outros 10 arquivo logs.txt igualmente, ficando assim 10 arquivos cada um com 10.000 logs. Essa divisão de logs foi necessária para que vocês pudessem testar a aplicação sem precisar reajustar as configurações do PHP pois para que fosse possível subir uma grande quantidade de logs de uma só vez seria preciso uma configuração específica de ambiente PHP.
 
 <strong>
     De qualquer forma, você poderá subir os 10 arquivos de logs.txt um por vez e ter da mesma forma 100.000 logs ao final das importações.
